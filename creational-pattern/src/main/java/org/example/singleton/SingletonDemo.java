@@ -1,6 +1,7 @@
 package org.example.singleton;
 
 import org.example.singleton.pattern.EagerSingletonPattern;
+import org.example.singleton.pattern.EnumSingletonPattern;
 import org.example.singleton.pattern.LazySingletonPattern;
 import org.junit.jupiter.api.Test;
 
@@ -82,6 +83,19 @@ public class SingletonDemo {
         for (int i = 0; i < 100; i++) {
             EXECUTOR_SERVICE.submit(() -> {
                 Singleton singleton = LazySingletonPattern.getSingletonByStaticInternalClass();
+                FG_GREEN.print("singleton ==> " + singleton);
+            });
+        }
+    }
+
+    /**
+     * 枚举实现单例
+     */
+    @Test
+    void testEnumSingleton() {
+        for (int i = 0; i < 100; i++) {
+            EXECUTOR_SERVICE.submit(() -> {
+                Singleton singleton = EnumSingletonPattern.instance.getSingleton();
                 FG_GREEN.print("singleton ==> " + singleton);
             });
         }
