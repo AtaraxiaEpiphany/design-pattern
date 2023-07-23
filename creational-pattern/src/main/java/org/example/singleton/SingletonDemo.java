@@ -22,6 +22,11 @@ public class SingletonDemo {
 
     private final ExecutorService EXECUTOR_SERVICE = Executors.newFixedThreadPool(6);
 
+    /**
+     * 饿汉式
+     *
+     * @throws InterruptedException
+     */
     @Test
     public void testEager() throws InterruptedException {
         CountDownLatch latch = new CountDownLatch(100);
@@ -41,6 +46,11 @@ public class SingletonDemo {
         }
     }
 
+    /**
+     * 懒汉式
+     *
+     * @throws InterruptedException
+     */
     @Test
     public void testLazy() throws InterruptedException {
         for (int i = 0; i < 100; i++) {
@@ -51,11 +61,27 @@ public class SingletonDemo {
         }
     }
 
+    /**
+     * 双重检查
+     */
     @Test
     void testDoubleCheck() {
         for (int i = 0; i < 100; i++) {
             EXECUTOR_SERVICE.submit(() -> {
                 Singleton singleton = LazySingletonPattern.getSingletonWithDoubleCheck();
+                FG_GREEN.print("singleton ==> " + singleton);
+            });
+        }
+    }
+
+    /**
+     * 静态内部类
+     */
+    @Test
+    void testStaticInternalClass() {
+        for (int i = 0; i < 100; i++) {
+            EXECUTOR_SERVICE.submit(() -> {
+                Singleton singleton = LazySingletonPattern.getSingletonByStaticInternalClass();
                 FG_GREEN.print("singleton ==> " + singleton);
             });
         }

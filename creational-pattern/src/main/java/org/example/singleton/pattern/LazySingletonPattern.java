@@ -47,4 +47,22 @@ public class LazySingletonPattern {
         }
         return instance;
     }
+
+    /**
+     * 静态内部类只有在该类属性/方法被调用的时候才会被加载,因此属于lazy懒汉式.
+     * 并且由于该类属性被static修饰,因此只会实例一次.(常规饿汉式的升级)
+     */
+    private static class SingletonHolder {
+        private static final Singleton instance = new Singleton();
+    }
+
+    /**
+     * 对外提供方法获取该静态内部类实例.
+     *
+     * @return
+     */
+    public static Singleton getSingletonByStaticInternalClass() {
+        return SingletonHolder.instance;
+    }
+
 }
