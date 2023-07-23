@@ -10,6 +10,9 @@
     <packaging>pom</packaging>
     <modules>
         <module>principle</module>
+        <module>creational-pattern</module>
+        <module>structural-pattern</module>
+        <module>behavioral-pattern</module>
     </modules>
 
     <!--   common dependencies  -->
