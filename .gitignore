@@ -3,6 +3,7 @@
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+**/singleton.txt
 ### IntelliJ IDEA ###
 **/.idea/
 .idea/modules.xml
