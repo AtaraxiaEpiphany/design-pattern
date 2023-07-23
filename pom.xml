@@ -7,6 +7,10 @@
     <groupId>org.example</groupId>
     <artifactId>design-patter</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>principle</module>
+    </modules>
 
     <!--   common dependencies  -->
     <parent>
