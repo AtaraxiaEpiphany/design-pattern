@@ -2,8 +2,8 @@ package org.example.factory.pattern.simpleFactory;
 
 import org.junit.jupiter.api.Test;
 
-import static org.example.factory.enums.CoffeeTypeEnum.AMERICANO;
-import static org.example.factory.enums.CoffeeTypeEnum.LATTE;
+import static org.example.factory.pattern.simpleFactory.enums.CoffeeTypeEnum.AMERICANO;
+import static org.example.factory.pattern.simpleFactory.enums.CoffeeTypeEnum.LATTE;
 
 /**
  * @Title: FactoryDemo

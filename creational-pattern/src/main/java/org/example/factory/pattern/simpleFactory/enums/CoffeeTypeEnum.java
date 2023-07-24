@@ -1,4 +1,4 @@
-package org.example.factory.enums;
+package org.example.factory.pattern.simpleFactory.enums;
 
 /**
  * @Title: CoffeeTypeEnum
