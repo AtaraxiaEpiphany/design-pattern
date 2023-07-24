@@ -1,6 +1,6 @@
 package org.example.factory.pattern.simpleFactory;
 
-import org.example.factory.pattern.enums.CoffeeTypeEnum;
+import org.example.factory.enums.CoffeeTypeEnum;
 
 /**
  * @Title: CoffeeStore 咖啡店

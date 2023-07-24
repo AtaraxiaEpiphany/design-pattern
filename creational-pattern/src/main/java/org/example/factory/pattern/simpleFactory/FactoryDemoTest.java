@@ -1,9 +1,9 @@
-package org.example.factory;
+package org.example.factory.pattern.simpleFactory;
 
-import org.example.factory.pattern.simpleFactory.CoffeeStore;
 import org.junit.jupiter.api.Test;
 
-import static org.example.factory.pattern.enums.CoffeeTypeEnum.*;
+import static org.example.factory.enums.CoffeeTypeEnum.AMERICANO;
+import static org.example.factory.enums.CoffeeTypeEnum.LATTE;
 
 /**
  * @Title: FactoryDemo
@@ -12,7 +12,7 @@ import static org.example.factory.pattern.enums.CoffeeTypeEnum.*;
  * @Date 23/07/2023 22:01
  * @Description: TODO
  */
-public class FactoryDemo {
+public class FactoryDemoTest {
     /**
      * 简单工厂测试.
      */
@@ -22,4 +22,5 @@ public class FactoryDemo {
         coffeeStore.orderCoffee(AMERICANO);
         coffeeStore.orderCoffee(LATTE);
     }
+
 }

@@ -1,11 +1,11 @@
 package org.example.factory.pattern.simpleFactory;
 
-import org.example.factory.pattern.enums.CoffeeTypeEnum;
+import org.example.factory.enums.CoffeeTypeEnum;
 import org.example.factory.pattern.simpleFactory.impl.AmericanoCoffee;
 import org.example.factory.pattern.simpleFactory.impl.LatteCoffee;
 
-import static org.example.factory.pattern.enums.CoffeeTypeEnum.AMERICANO;
-import static org.example.factory.pattern.enums.CoffeeTypeEnum.LATTE;
+import static org.example.factory.enums.CoffeeTypeEnum.AMERICANO;
+import static org.example.factory.enums.CoffeeTypeEnum.LATTE;
 
 /**
  * @Title: SimpleCoffeeFactory 简单工厂
