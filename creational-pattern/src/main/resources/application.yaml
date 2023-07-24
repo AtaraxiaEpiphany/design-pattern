@@ -1,0 +1,6 @@
+##
+# 通过简单工厂➕配置文件实现解耦.
+##
+coffee:
+  americano: org.example.factory.pattern.configFactory.impl.AmericanoCoffee
+  latte: org.example.factory.pattern.configFactory.impl.LatteCoffee
