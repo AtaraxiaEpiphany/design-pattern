@@ -3,7 +3,7 @@ package org.example.builder.impl;
 import org.example.builder.Bike;
 import org.example.builder.Builder;
 
-import static com.common.util.ConsoleLogUtil.FG_YELLOW;
+import static com.common.util.LogUtil.FG_YELLOW;
 
 /**
  * @Title: RuYIBikeBuilder 如意自行车建造者

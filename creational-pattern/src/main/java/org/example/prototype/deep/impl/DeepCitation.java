@@ -3,7 +3,7 @@ package org.example.prototype.deep.impl;
 import cn.hutool.json.JSONUtil;
 import org.example.prototype.deep.Student;
 
-import static com.common.util.ConsoleLogUtil.FG_YELLOW;
+import static com.common.util.LogUtil.FG_YELLOW;
 
 /**
  * @Title: DeepCitation 原型类

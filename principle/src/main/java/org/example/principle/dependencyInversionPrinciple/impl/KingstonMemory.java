@@ -1,10 +1,10 @@
 package org.example.principle.dependencyInversionPrinciple.impl;
 
-import com.common.util.ConsoleLogUtil;
+import com.common.util.LogUtil;
 import org.apache.tomcat.util.log.SystemLogHandler;
 import org.example.principle.dependencyInversionPrinciple.Memory;
 
-import static com.common.util.ConsoleLogUtil.FG_GREEN;
+import static com.common.util.LogUtil.FG_GREEN;
 
 /**
  * @Title: KingstonMemory 金士顿内存条

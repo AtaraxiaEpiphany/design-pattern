@@ -2,7 +2,7 @@ package org.example.factory.pattern.abstractFactory.impl;
 
 import org.example.factory.pattern.abstractFactory.Dessert;
 
-import static com.common.util.ConsoleLogUtil.FG_YELLOW;
+import static com.common.util.LogUtil.FG_YELLOW;
 
 /**
  * @Title: Tiramisu 提拉米苏

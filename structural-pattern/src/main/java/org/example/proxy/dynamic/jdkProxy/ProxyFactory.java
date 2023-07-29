@@ -4,7 +4,7 @@ import org.example.proxy.dynamic.jdkProxy.impl.Transaction;
 
 import java.lang.reflect.Proxy;
 
-import static com.common.util.ConsoleLogUtil.FG_GREEN;
+import static com.common.util.LogUtil.FG_GREEN;
 
 /**
  * @Title: ProxyFactory 工厂类

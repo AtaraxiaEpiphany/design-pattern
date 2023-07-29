@@ -1,6 +1,6 @@
 package org.example.factory.pattern.configFactory;
 
-import static com.common.util.ConsoleLogUtil.FG_YELLOW;
+import static com.common.util.LogUtil.FG_YELLOW;
 
 /**
  * @Title: Coffee

@@ -3,7 +3,7 @@ package org.example.builder.impl;
 import org.example.builder.Bike;
 import org.example.builder.Builder;
 
-import static com.common.util.ConsoleLogUtil.FG_YELLOW;
+import static com.common.util.LogUtil.FG_YELLOW;
 
 /**
  * @Title: HelloBikeBuilder 哈喽单车构建者

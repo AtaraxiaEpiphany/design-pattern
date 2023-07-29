@@ -1,6 +1,6 @@
 package org.example.singleton.destroy;
 
-import com.common.util.ConsoleLogUtil;
+import com.common.util.LogUtil;
 import org.example.singleton.Singleton;
 import org.example.singleton.pattern.LazySingletonPattern;
 import org.junit.jupiter.api.Test;
@@ -39,7 +39,7 @@ public class DestroyBySerializable {
          */
         Singleton s1 = readFromFile();
         Singleton s2 = readFromFile();
-        ConsoleLogUtil.FG_GREEN.print("s1 ==> %s", s1);
-        ConsoleLogUtil.FG_GREEN.print("s2 ==> %s", s2);
+        LogUtil.FG_GREEN.print("s1 ==> %s", s1);
+        LogUtil.FG_GREEN.print("s2 ==> %s", s2);
     }
 }

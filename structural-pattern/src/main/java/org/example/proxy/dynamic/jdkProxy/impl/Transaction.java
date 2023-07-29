@@ -2,7 +2,7 @@ package org.example.proxy.dynamic.jdkProxy.impl;
 
 import org.example.proxy.dynamic.jdkProxy.SellTickets;
 
-import static com.common.util.ConsoleLogUtil.FG_YELLOW;
+import static com.common.util.LogUtil.FG_YELLOW;
 
 /**
  * @Title: Transaction 火车站售票类

@@ -1,8 +1,8 @@
 package org.example.principle.principleOfLeastKnowleadge;
 
-import com.common.util.ConsoleLogUtil;
+import com.common.util.LogUtil;
 
-import static com.common.util.ConsoleLogUtil.FG_GREEN;
+import static com.common.util.LogUtil.FG_GREEN;
 
 /**
  * @Title: Agent 经纪人

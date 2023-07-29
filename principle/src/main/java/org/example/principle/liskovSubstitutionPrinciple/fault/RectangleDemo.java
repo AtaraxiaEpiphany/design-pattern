@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.TimeUnit;
 
-import static com.common.util.ConsoleLogUtil.FG_GREEN;
-import static com.common.util.ConsoleLogUtil.FG_YELLOW;
+import static com.common.util.LogUtil.FG_GREEN;
+import static com.common.util.LogUtil.FG_YELLOW;
 
 /**
  * @Title: RectangleDemo

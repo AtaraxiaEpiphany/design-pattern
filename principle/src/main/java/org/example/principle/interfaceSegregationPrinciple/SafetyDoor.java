@@ -1,8 +1,8 @@
 package org.example.principle.interfaceSegregationPrinciple;
 
-import com.common.util.ConsoleLogUtil;
+import com.common.util.LogUtil;
 
-import static com.common.util.ConsoleLogUtil.FG_YELLOW;
+import static com.common.util.LogUtil.FG_YELLOW;
 
 /**
  * @Title: SafetyDoor 安全门

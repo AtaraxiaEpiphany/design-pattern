@@ -2,7 +2,7 @@ package org.example.proxy.staticProxy;
 
 import org.example.proxy.staticProxy.impl.Transaction;
 
-import static com.common.util.ConsoleLogUtil.FG_GREEN;
+import static com.common.util.LogUtil.FG_GREEN;
 
 /**
  * @Title: ProxyPoint 代售点

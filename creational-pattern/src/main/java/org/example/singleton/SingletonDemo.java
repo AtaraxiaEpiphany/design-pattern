@@ -9,8 +9,8 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import static com.common.util.ConsoleLogUtil.FG_GREEN;
-import static com.common.util.ConsoleLogUtil.FG_YELLOW;
+import static com.common.util.LogUtil.FG_GREEN;
+import static com.common.util.LogUtil.FG_YELLOW;
 
 /**
  * @Title: SingletonDemo 测试类

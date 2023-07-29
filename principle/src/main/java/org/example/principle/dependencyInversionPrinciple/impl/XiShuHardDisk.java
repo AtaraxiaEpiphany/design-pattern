@@ -1,9 +1,9 @@
 package org.example.principle.dependencyInversionPrinciple.impl;
 
-import com.common.util.ConsoleLogUtil;
+import com.common.util.LogUtil;
 import org.example.principle.dependencyInversionPrinciple.HardDisk;
 
-import static com.common.util.ConsoleLogUtil.FG_YELLOW;
+import static com.common.util.LogUtil.FG_YELLOW;
 
 /**
  * @Title: XiShuHardDisk 西数硬盘

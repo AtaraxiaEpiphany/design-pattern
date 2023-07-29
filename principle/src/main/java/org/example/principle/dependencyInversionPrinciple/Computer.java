@@ -1,8 +1,8 @@
 package org.example.principle.dependencyInversionPrinciple;
 
-import com.common.util.ConsoleLogUtil;
+import com.common.util.LogUtil;
 
-import static com.common.util.ConsoleLogUtil.*;
+import static com.common.util.LogUtil.*;
 
 /**
  * @Title: Computer 主机
