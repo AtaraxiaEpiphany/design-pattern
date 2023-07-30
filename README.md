@@ -288,6 +288,18 @@
 > 工厂内部createDecorator方法使用`Function<component,component> function`作为参数,
 > 在具体工厂中传入Function参数来定义不同的Decorator装饰器行为.
 
+### 桥接模式(Bridge Pattern)
+
+> 桥接模式用于将抽象部分与实现部分分离，以便它们可以独立地变化。
+> 该模式通过将继承关系改为关联关系，使得抽象部分和实现部分可以独立地进行扩展。
+>
+> 主要角色:
+
+- 抽象化（Abstraction）：定义抽象部分的接口，维护一个指向实现部分的引用。
+- 具体抽象化（Concrete Abstraction）：实现抽象部分的接口，继承抽象部分，并调用实现部分的方法。
+- 实现化（Implementor）：定义实现部分的接口，供具体实现部分实现。
+- 具体实现化（Concrete Implementor）：实现实现部分的接口。
+
 ## 行为型模式(Behavioral Pattern)
 
 > 该模式关注对象之间的通信和交互，以解决对象之间的责任分配和算法封装等问题。
