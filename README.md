@@ -341,6 +341,32 @@
 > 透明式组合模式的一个典型实现是将组件接口定义为抽象类或接口，其中包含对叶子对象和组合对象的操作，
 > 而具体的叶子对象类和组合对象类都实现了该接口。
 
+### 享元模式(Flyweight Pattern)
+
+> 享元模式旨在通过共享对象来减少内存使用和提高性能。
+> 在享元模式中，对象被分为可共享的内部状态(Intrinsic State)不可共享的外部状态(Extrinsic State)。
+> 内部状态是对象的固有属性，可以在多个对象之间共享且不会随着环境改变，
+> 而外部状态是对象的上下文相关的属性，每个对象都有自己的外部状态。
+>
+> 主要角色:
+
+- Flyweight（享元）：它是一个接口或抽象类，定义了享元对象的接口和方法。它包含了可以被共享的内部状态（Intrinsic
+  State）和操作方法，同时也可以通过这些方法设置外部状态(Extrinsic State)。
+- ConcreteFlyweight（具体享元）：实现了Flyweight接口，并实现了共享的内部状态。具体享元对象可以被共享和重用，因此它们必须是无状态的或可共享状态的。
+- UnsharedConcreteFlyweight（非共享具体享元）：在享元模式中，有时候可能存在非共享的具体享元对象。这些对象不会被共享，因此可以有自己的状态。
+- FlyweightFactory（享元工厂）：负责创建和管理享元对象。它维护一个享元池(Flyweight Pool)
+  来存储已经创建的享元对象，并在需要时返回已有的对象或创建新的对象。享元工厂通常提供一个获取享元对象的方法，该方法接受外部状态作为参数，并根据外部状态返回相应的享元对象。
+
+> Integer内部用到了flyweight pattern,内部维护了一个flyweight pool.
+
+```java
+public static Integer valueOf(int i){
+    if(i>=IntegerCache.low&&i<=IntegerCache.high)
+      return IntegerCache.cache[i+(-IntegerCache.low)];
+    return new Integer(i);
+} 
+```
+
 ## 行为型模式(Behavioral Pattern)
 
 > 该模式关注对象之间的通信和交互，以解决对象之间的责任分配和算法封装等问题。

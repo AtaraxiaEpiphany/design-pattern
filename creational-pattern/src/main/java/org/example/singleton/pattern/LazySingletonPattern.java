@@ -39,10 +39,12 @@ public class LazySingletonPattern {
              * 因此需要double check.
              */
             synchronized (LazySingletonPattern.class) {
-                if (Objects.nonNull(instance)) {
-                    return instance;
+                if (Objects.isNull(instance)) {
+                    /**
+                     * 写操作  上锁.
+                     */
+                    instance = new Singleton();
                 }
-                instance = new Singleton();
             }
         }
         return instance;
