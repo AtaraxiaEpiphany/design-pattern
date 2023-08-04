@@ -387,7 +387,7 @@ public static Integer valueOf(int i){
 - 具体类(Concrete Class):
   具体类在模板方法模式中起到了实际实现算法的作用，通过提供具体的实现细节来完成算法的执行。每个具体类都可以根据自身的需求来实现抽象方法，并可以选择性地重写钩子方法，以便在模板方法的执行过程中插入自定义的逻辑。
 
-### 策略模式(Strategy Pattern)
+### **策略模式(Strategy Pattern)**
 
 > 策略模式允许在运行时选择算法的行为。
 > 该模式将算法封装在独立的策略类中，使得它们可以相互替换，而不影响使用算法的客户端。
@@ -408,6 +408,40 @@ public interface Comparator<T> {
   int compare(T o1, T o2);
 }
 ```
+
+### 命令模式(Command Pattern)
+
+> 命令模式请求封装成一个对象，使得发出的请求与执行的责任分开。
+> 从而使得发送者不需要知道具体的接收者，只需通过`命令对象`来执行请求。
+>
+> 主要角色:
+
+- 命令（Command）：定义了执行操作的接口。通常包含一个执行（execute）方法，用于执行具体的操作。命令对象可以封装一系列操作，包括调用接收者的方法、传递参数等。
+- 具体命令（Concrete Command）：实现了命令接口，具体命令类将具体的操作绑定到`接收者`上。它包含了`接收者`对象，并在执行方法中调用接收者的相应操作。
+- 调用者/请求者（Invoker）：负责调用`命令对象`来执行请求。它持有一个`命令对象`，并在需要执行请求时调用命令对象的执行方法。
+- 接收者/实现者（Receiver）：`执行实际操作的对象`。接收者包含了具体的业务逻辑，负责执行`命令对象`所封装的操作。
+
+> Runnable使用了命令模式,Runnable是一个`Command`,Thread是`Invoker`,start是其执行方法.
+
+```
+// Command
+public interface Runnable {
+    public abstract void run();
+}
+// Invoker
+public class Thread implements Runnable {
+    /* What will be run. (Command) */
+    private Runnable target;
+    public synchronized void start() {
+        // ...
+        /**
+         * target.run();
+         */
+    }
+}
+```
+
+
 
 
 
