@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>design-patter</artifactId>
+    <artifactId>design-pattern</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
@@ -13,6 +13,7 @@
         <module>creational-pattern</module>
         <module>structural-pattern</module>
         <module>behavioral-pattern</module>
+        <module>spring</module>
     </modules>
 
     <!--   common dependencies  -->
@@ -29,10 +30,6 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>

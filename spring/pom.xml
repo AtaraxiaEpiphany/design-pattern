@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>behavioral-pattern</artifactId>
+    <artifactId>spring</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -17,4 +17,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>2.1.4</version>
+        </dependency>
+    </dependencies>
 </project>

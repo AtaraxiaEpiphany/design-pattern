@@ -1,7 +1,5 @@
 package org.example.principle.dependencyInversionPrinciple.impl;
 
-import com.common.util.LogUtil;
-import org.apache.tomcat.util.log.SystemLogHandler;
 import org.example.principle.dependencyInversionPrinciple.Memory;
 
 import static com.common.util.LogUtil.FG_GREEN;
