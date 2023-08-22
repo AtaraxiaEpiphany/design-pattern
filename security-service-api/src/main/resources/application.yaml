@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: security-service-api
+  datasource:
+    url: jdbc:mysql://alibaba:3306/security
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: demo
+    password: demo
+mybatis-plus:
+  type-aliases-package: com.demo.security.contract.model
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    banner: off
