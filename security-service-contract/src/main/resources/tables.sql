@@ -1,7 +1,7 @@
 create table if not exists sys_user
 (
     user_id                varchar(64) primary key comment '主键',
-    username               varchar(20)  not null comment '用户名',
+    username               varchar(20)  not null unique comment '用户名',
     password               varchar(100) not null comment '用户密码',
     enabled                varchar(2)   not null comment '是否启用账号',
     account_no_expired     varchar(2)   not null comment '账号是否过期',

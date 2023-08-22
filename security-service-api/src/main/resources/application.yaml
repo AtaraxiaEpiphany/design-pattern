@@ -10,5 +10,6 @@ mybatis-plus:
   type-aliases-package: com.demo.security.contract.model
   configuration:
     map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
     banner: off
