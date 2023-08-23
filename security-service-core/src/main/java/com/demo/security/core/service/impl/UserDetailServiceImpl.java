@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.demo.security.contract.model.UserDetail;
 import com.demo.security.contract.model.UserEntity;
 import com.demo.security.contract.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -20,6 +21,7 @@ import java.util.Objects;
  * @Description: 自定义系统用户查询服务
  */
 @Service
+@Slf4j
 public class UserDetailServiceImpl implements UserDetailsService {
 
     @Autowired

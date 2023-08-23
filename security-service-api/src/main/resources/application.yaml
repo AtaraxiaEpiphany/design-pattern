@@ -13,3 +13,27 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
     banner: off
+###########
+# OpenAPI #
+###########
+knife4j:
+  basic:
+    enable: true
+    username: knife
+    password: 9660527
+  setting:
+    enable-group: true
+  enable: true
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'user-detail'
+      paths-to-match: '/**'
+      packages-to-scan: com.demo.security.api
+server:
+  port: 8090

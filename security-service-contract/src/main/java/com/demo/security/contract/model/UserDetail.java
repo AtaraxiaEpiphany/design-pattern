@@ -20,6 +20,7 @@ import java.util.List;
 public class UserDetail implements UserDetails {
 
     private UserEntity userEntity;
+
     private List<GrantedAuthority> authorityList;
 
     public UserDetail(UserEntity userEntity) {
@@ -34,7 +35,9 @@ public class UserDetail implements UserDetails {
 
     @Override
     public String getPassword() {
-        return userEntity.getPassword();
+        String password = userEntity.getPassword();
+        userEntity.setPassword(null);
+        return password;
     }
 
     @Override
