@@ -1,5 +1,6 @@
-package com.demo.security.contract.model;
+package com.demo.security.contract.common;
 
+import com.demo.security.contract.model.UserEntity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -7,6 +8,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
+
+import static com.demo.security.contract.constant.AccountEnum.*;
 
 /**
  * @Title: SysUser
@@ -47,21 +50,21 @@ public class UserDetail implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return true;
+        return ACCOUNT_NON_EXPIRED.getCode().equals(userEntity.getAccountNoExpired());
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return ACCOUNT_NON_LOCKED.getCode().equals(userEntity.getAccountNoLocked());
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true;
+        return CREDENTIALS_NON_EXPIRED.getCode().equals(userEntity.getCredentialsNoExpired());
     }
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return ENABLED.getCode().equals(userEntity.getEnabled());
     }
 }

@@ -1,5 +1,6 @@
 package com.demo.security.core.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.demo.security.contract.model.RoleEntity;
 import com.demo.security.contract.service.RoleService;
@@ -17,4 +18,10 @@ import org.springframework.stereotype.Service;
 @Service
 @Slf4j
 public class RoleServiceImpl extends ServiceImpl<RoleMapper, RoleEntity> implements RoleService {
+    @Override
+    public RoleEntity getRoleByRoleName(String roleName) {
+        LambdaQueryWrapper<RoleEntity> lqw = new LambdaQueryWrapper<>();
+        lqw.eq(RoleEntity::getRoleName, roleName);
+        return getOne(lqw);
+    }
 }

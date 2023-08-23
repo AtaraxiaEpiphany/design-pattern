@@ -4,7 +4,9 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -18,6 +20,8 @@ import java.io.Serializable;
 @TableName("sys_role")
 @Schema
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class RoleEntity implements Serializable {
     /**
      * 主键

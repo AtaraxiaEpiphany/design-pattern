@@ -3,6 +3,8 @@ package com.demo.security.contract.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.demo.security.contract.model.UserRoleRelationEntity;
 
+import java.util.List;
+
 /**
  * @Title: SysUserRoleRelationService
  * @Author Hannibal
@@ -11,4 +13,7 @@ import com.demo.security.contract.model.UserRoleRelationEntity;
  * @Description: TODO
  */
 public interface UserRoleRelationService extends IService<UserRoleRelationEntity> {
+    List<String> getRoleByUserId(String userId);
+
+    boolean addRole(String username, String roleName);
 }

@@ -6,6 +6,8 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     username: demo
     password: demo
+  main:
+    allow-bean-definition-overriding: true
 mybatis-plus:
   type-aliases-package: com.demo.security.contract.model
   configuration:

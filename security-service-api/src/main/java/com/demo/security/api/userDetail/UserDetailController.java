@@ -39,4 +39,6 @@ public class UserDetailController {
     public Principal getUserDetailBySecurityContext() {
         return SecurityContextHolder.getContext().getAuthentication();
     }
+
+
 }

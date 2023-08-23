@@ -29,13 +29,13 @@ public class UserEntity implements Serializable {
     /**
      * 用户名
      */
-    @Schema(description = "用户名")
+    @Schema(description = "用户名", example = "Hannibal")
     private String username;
 
     /**
      * 用户密码
      */
-    @Schema(description = "用户密码")
+    @Schema(description = "用户密码", example = "9660527")
     private String password;
 
     /**

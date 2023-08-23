@@ -11,4 +11,5 @@ import com.demo.security.contract.model.RoleEntity;
  * @Description: TODO
  */
 public interface RoleService extends IService<RoleEntity> {
+    RoleEntity getRoleByRoleName(String roleName);
 }

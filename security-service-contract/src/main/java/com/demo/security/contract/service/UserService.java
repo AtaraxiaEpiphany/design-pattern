@@ -11,4 +11,5 @@ import com.demo.security.contract.model.UserEntity;
  * @Description: TODO
  */
 public interface UserService extends IService<UserEntity> {
+    UserEntity getUserByUserName(String username);
 }

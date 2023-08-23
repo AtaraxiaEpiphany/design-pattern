@@ -12,13 +12,13 @@ create table if not exists sys_user
 create table if not exists sys_role
 (
     role_id          varchar(64) primary key comment '主键',
-    role_name        varchar(20) comment '权限名称',
+    role_name        varchar(20) not null unique comment '权限名称',
     role_description varchar(50) comment '权限说明'
 );
 
 create table if not exists sys_user_role_relation
 (
     user_role_relation_id varchar(64) primary key comment '主键',
-    user_id               varchar(64) comment '用户id',
-    role_id               varchar(64) comment '权限id'
+    user_id               varchar(64) not null comment '用户id',
+    role_id               varchar(64) not null comment '权限id'
 );
