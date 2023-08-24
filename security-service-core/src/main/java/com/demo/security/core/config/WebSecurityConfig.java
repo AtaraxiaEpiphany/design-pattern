@@ -34,7 +34,12 @@ public class WebSecurityConfig {
                         .anyRequest()
                         .authenticated()
         );
-        http.formLogin().permitAll();
+        http.formLogin()
+                .successHandler((request, response, authentication) -> {
+                    response.sendRedirect("/doc.html");
+                })
+                .permitAll();
+//        http.formLogin().permitAll();
 //                .successHandler(successHandler());    // 登录成功处理
 //                .successForwardUrl("/doc.html");    //登录成功URL
 //                .failureForwardUrl()  //登录失败
@@ -55,6 +60,7 @@ public class WebSecurityConfig {
 
         return http.build();
     }
+
 
 }
 
