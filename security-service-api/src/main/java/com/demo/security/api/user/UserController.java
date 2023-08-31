@@ -1,6 +1,8 @@
 package com.demo.security.api.user;
 
 import cn.hutool.core.util.IdUtil;
+import com.common.constant.HttpEnum;
+import com.common.model.response.HttpResponse;
 import com.demo.security.contract.model.UserEntity;
 import com.demo.security.contract.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -34,13 +36,17 @@ public class UserController {
     @PreAuthorize("hasAnyAuthority('add')")
     @PostMapping("insert")
     @Operation(summary = "添加系统用户", description = "新增系统用户")
-    public Boolean addUser(@RequestBody UserEntity user) {
+    public HttpResponse addUser(@RequestBody UserEntity user) {
         user.setUserId(String.valueOf(IdUtil.getSnowflakeNextId()));
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setAccountNoExpired(ACCOUNT_NON_EXPIRED.getCode());
         user.setCredentialsNoExpired(CREDENTIALS_NON_EXPIRED.getCode());
         user.setAccountNoLocked(ACCOUNT_NON_LOCKED.getCode());
         user.setEnabled(ENABLED.getCode());
-        return userService.save(user);
+        boolean save = userService.save(user);
+        return new HttpResponse.builder()
+                .data(save)
+                .responsable(HttpEnum.OK)
+                .build();
     }
 }

@@ -1,5 +1,7 @@
 package com.demo.security;
 
+import com.common.model.response.HttpResponse;
+import com.common.util.IdWorker;
 import com.demo.security.contract.model.RoleEntity;
 import com.demo.security.contract.model.UserEntity;
 import com.demo.security.contract.model.UserRoleRelationEntity;
@@ -29,6 +31,15 @@ public class DemoTest {
     private RoleMapper roleMapper;
     @Autowired
     private UserRoleRelationMapper userRoleRelationMapper;
+
+
+    @Test
+    void name() {
+        IdWorker idWorker = new IdWorker(null);
+        long l = idWorker.nextId();
+        System.out.println("l ==> " + l);
+        HttpResponse.builder<String> builder = new HttpResponse.builder<>();
+    }
 
     @Test
     void testUser() {

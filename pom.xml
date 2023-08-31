@@ -25,6 +25,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jwt.version>4.4.0</jwt.version>
+        <core.version>2.0-SNAPSHOT</core.version>
     </properties>
 
     <dependencyManagement>
@@ -76,8 +77,8 @@
             </dependency>
             <dependency>
                 <groupId>com.common-boot</groupId>
-                <artifactId>util</artifactId>
-                <version>${parent.version}</version>
+                <artifactId>core</artifactId>
+                <version>${core.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.auth0</groupId>
