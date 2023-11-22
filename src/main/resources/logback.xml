@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
-    <property name="maxHistory" value="7"></property>
-    <property name="maxFileSize" value="20"></property>
-    <springProperty scope="context" name="filePath" source="logging.file.path"/>
-    <springProperty scope="context" name="applicationName" source="spring.application.name"/>
+    <property name="maxHistory" value="7"/>
+    <property name="maxFileSize" value="20"/>
+    <property name="filePath" value="./logs/netty"/>
+    <property name="applicationName" value="netty"/>
+    <!--    <springProperty scope="context" name="filePath" source="logging.file.path"/>-->
+    <!--    <springProperty scope="context" name="applicationName" source="spring.application.name"/>-->
     <!--配置规则转换类的位置-->
     <conversionRule conversionWord="ip" converterClass="com.common.config.log.IpLogConverter"/>
 
@@ -107,8 +109,8 @@
         <!-- 过滤器，只记录DEBUG级别的日志 -->
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>DEBUG</level>
-            <onMatch>ACCEPT</onMatch>
-            <onMismatch>DENY</onMismatch>
+            <!--            <onMatch>ACCEPT</onMatch>-->
+            <!--            <onMismatch>DENY</onMismatch>-->
         </filter>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 按天回滚 daily -->
@@ -151,7 +153,7 @@
         <rollingPolicy
                 class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--日志文件输出的文件名 -->
-            <FileNamePattern>${LOG_PATH}/%d{yyyy/MM/dd}/log.html
+            <FileNamePattern>${filePath}/%d{yyyy/MM/dd}/log.html
             </FileNamePattern>
             <!--日志文件保留天数 -->
             <MaxHistory>${maxHistory}</MaxHistory>
@@ -169,6 +171,13 @@
         </triggeringPolicy>
     </appender>
     <!-- 每天生成一个html格式的日志结束 -->
+
+
+    <!--  netty logger handler  -->
+    <logger name="io.netty.handler.logging.LoggingHandler" level="DEBUG" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
 
     <!-- root级别 DEBUG -->
     <root level="INFO">
