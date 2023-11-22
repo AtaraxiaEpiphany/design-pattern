@@ -24,8 +24,9 @@ import java.util.Scanner;
 public class CloseFutureDemo {
 
     public static void main(String[] args) throws InterruptedException {
+        NioEventLoopGroup group = new NioEventLoopGroup();
         ChannelFuture future = new Bootstrap()
-                .group(new NioEventLoopGroup())
+                .group(group)
                 .channel(NioSocketChannel.class)
                 .handler(new ChannelInitializer<NioSocketChannel>() {
                     @Override
@@ -59,5 +60,6 @@ public class CloseFutureDemo {
         });
         closeFuture.sync();
         log.error("close operation after sync()..."); // √√√
+        group.shutdownGracefully();
     }
 }

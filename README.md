@@ -29,3 +29,4 @@
 
 > channel.close()方法也是一个异步方法,直接在close()方法下调用关闭逻辑是错误的.
 > 可以获取到closeFuture()后,使用sync()或者addListener()来处理关闭逻辑.
+> 最后可以获取到EventLoopGroup对象,调用`group.shutdownGracefully()`来关闭eventLoop线程.
