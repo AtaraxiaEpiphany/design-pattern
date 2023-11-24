@@ -66,3 +66,14 @@
 
 > 打个比喻，每个 Channel 是一个产品的加工车间，Pipeline 是车间中的流水线，ChannelHandler 就是流水线上的各道工序，而后面要讲的
 > ByteBuf 是原材料，经过很多工序的加工：先经过一道道入站工序，再经过一道道出站工序最终变成产品
+
+### ctx.channel().write(msg) vs ctx.write(msg)
+
+* 都是触发出站处理器的执行
+* ctx.channel().write(msg) 从尾部开始查找出站处理器
+* ctx.write(msg) 是从当前节点找上一个出站处理器
+
+### EmbeddedHandler
+
+> 用于调试inbound 与 outbound handler的工具类,避免创建服务器与客户端.
+

@@ -53,7 +53,11 @@ public class PipelineDemo {
                             public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
                                 log.info("Inbound handler three.");
                                 super.channelRead(ctx, msg);
-                                //向channel写数据触发Outbound
+                                /**
+                                 * 写数据触发Outbound
+                                 * channel: 从最后的handler向前找outbound handler
+                                 * ctx: 从当前handler向前找outbound handler
+                                 */
                                 ch.writeAndFlush(ctx.alloc().buffer().writeBytes("Write msg for client to trigger `Outbound`.".getBytes()));
                             }
                         });
