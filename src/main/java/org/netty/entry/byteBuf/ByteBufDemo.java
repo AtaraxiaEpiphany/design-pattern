@@ -1,4 +1,4 @@
-package org.netty.entry.bytebuf;
+package org.netty.entry.byteBuf;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufAllocator;
@@ -10,7 +10,7 @@ import java.nio.charset.Charset;
 /**
  * @Title: ByteBufDemo
  * @Author Hannibal
- * @Package org.netty.entry.bytebuf
+ * @Package org.netty.entry.byteBuf
  * @Date 25/11/2023 16:03
  * @Description: TODO
  */

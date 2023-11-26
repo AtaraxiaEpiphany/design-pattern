@@ -77,3 +77,44 @@
 
 > 用于调试inbound 与 outbound handler的工具类,避免创建服务器与客户端.
 
+## ByteBuf
+
+#### 直接内存 vs 堆内存
+
+可以使用下面的代码来创建池化基于堆的 ByteBuf
+
+```
+ByteBuf buffer = ByteBufAllocator.DEFAULT.heapBuffer(10);
+```
+
+也可以使用下面的代码来创建池化基于直接内存的 ByteBuf
+
+```
+ByteBuf buffer = ByteBufAllocator.DEFAULT.directBuffer(10);
+```
+
+* 直接内存创建和销毁的代价昂贵，但读写性能高（少一次内存复制），适合配合池化功能一起用
+* 直接内存对 GC 压力小，因为这部分内存不受 JVM 垃圾回收的管理，但也要注意及时主动释放
+
+### 池化 vs 非池化
+
+池化的最大意义在于可以重用 ByteBuf，优点有
+
+* 没有池化，则每次都得创建新的 ByteBuf 实例，这个操作对直接内存代价昂贵，就算是堆内存，也会增加 GC 压力
+* 有了池化，则可以重用池中 ByteBuf 实例，并且采用了与 jemalloc 类似的内存分配算法提升分配效率
+* 高并发时，池化功能更节约内存，减少内存溢出的可能
+
+池化功能是否开启，可以通过下面的系统环境变量来设置
+
+```
+-Dio.netty.allocator.type={unpooled|pooled}
+```
+
+### ByteBuf 优点
+
+- 池化 - 可以重用池中 ByteBuf 实例，更节约内存，减少内存溢出的可能
+- 读写指针分离，不需要像 ByteBuffer 一样切换读写模式
+- 可以自动扩容
+- 支持链式调用，使用更流畅
+- 很多地方体现零拷贝，例如 slice、duplicate、CompositeByteBuf
+

@@ -1,6 +1,7 @@
 package org.netty.util;
 
 import io.netty.buffer.ByteBuf;
+import lombok.extern.slf4j.Slf4j;
 
 import static io.netty.buffer.ByteBufUtil.appendPrettyHexDump;
 import static io.netty.util.internal.StringUtil.NEWLINE;
@@ -12,6 +13,7 @@ import static io.netty.util.internal.StringUtil.NEWLINE;
  * @Date 25/11/2023 21:56
  * @Description: TODO
  */
+@Slf4j
 public class ByteBufUtil {
     public static void log(ByteBuf buffer) {
         int length = buffer.readableBytes();
@@ -22,6 +24,6 @@ public class ByteBufUtil {
                 .append(" capacity:").append(buffer.capacity())
                 .append(NEWLINE);
         appendPrettyHexDump(buf, buffer);
-        System.out.println(buf);
+        log.info("{}", buf);
     }
 }
