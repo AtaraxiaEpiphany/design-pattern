@@ -144,3 +144,35 @@ MSS 限制：当发送的数据超过 MSS 限制后，会将数据切分发送�
 - 每一条消息采用固定长度，缺点浪费空间
 - 每一条消息采用分隔符，例如 \n，缺点需要转义
 - 每一条消息分为 head 和 body，head 中包含 body 的长度
+
+## 空闲检测与心跳
+
+```
+    /**
+     * Creates a new instance firing {@link IdleStateEvent}s.
+     *
+     * @param readerIdleTimeSeconds
+     *        an {@link IdleStateEvent} whose state is {@link IdleState#READER_IDLE}
+     *        will be triggered when no read was performed for the specified
+     *        period of time.  Specify {@code 0} to disable.
+     * @param writerIdleTimeSeconds
+     *        an {@link IdleStateEvent} whose state is {@link IdleState#WRITER_IDLE}
+     *        will be triggered when no write was performed for the specified
+     *        period of time.  Specify {@code 0} to disable.
+     * @param allIdleTimeSeconds
+     *        an {@link IdleStateEvent} whose state is {@link IdleState#ALL_IDLE}
+     *        will be triggered when neither read nor write was performed for
+     *        the specified period of time.  Specify {@code 0} to disable.
+     */
+    public IdleStateHandler(
+            int readerIdleTimeSeconds,
+            int writerIdleTimeSeconds,
+            int allIdleTimeSeconds) {
+    }
+    
+    
+    //....
+    // 服务端增加读空闲检测, 
+    // 客户端增加写空闲检测,触发发送*心跳包*事件
+    
+```
