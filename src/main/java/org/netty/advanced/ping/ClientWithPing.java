@@ -30,7 +30,7 @@ public class ClientWithPing {
                         ChannelPipeline pipeline = ch.pipeline();
                         pipeline.addLast(new StringEncoder());
                         pipeline.addLast(new IdleStateHandler(0, 3, 0));
-                        pipeline.addLast(new ChannelInboundHandlerAdapter() {
+                        pipeline.addLast(new ChannelDuplexHandler() {
                             @Override
                             public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
                                 if (((IdleStateEvent) evt).state().equals(IdleState.WRITER_IDLE)) {

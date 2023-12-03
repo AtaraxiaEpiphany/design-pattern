@@ -176,3 +176,64 @@ MSS 限制：当发送的数据超过 MSS 限制后，会将数据切分发送�
     // 客户端增加写空闲检测,触发发送*心跳包*事件
     
 ```
+
+## netty优化
+
+### 参数调优
+
+#### CONNECT_TIMEOUT_MILLIS
+
+> 属于 SocketChannel 参数
+> 用在客户端建立连接时，如果在指定毫秒内无法连接，会抛出 timeout 异常
+> SO_TIMEOUT 主要用在阻塞 IO，阻塞 IO 中 accept，read 等都是无限等待的，如果不希望永远阻塞，使用它调整超时时间
+
+#### SO_BACKLOG
+
+> 属于 ServerSocketChannel 参数
+
+```mermaid
+sequenceDiagram
+
+participant c as client
+participant s as server
+participant sq as syns queue
+participant aq as accept queue
+
+s ->> s : bind()
+s ->> s : listen()
+c ->> c : connect()
+c ->> s : 1. SYN
+Note left of c : SYN_SEND
+s ->> sq : put
+Note right of s : SYN_RCVD
+s ->> c : 2. SYN + ACK
+Note left of c : ESTABLISHED
+c ->> s : 3. ACK
+sq ->> aq : put
+Note right of s : ESTABLISHED
+aq -->> s : 
+s ->> s : accept()
+```
+
+1. 第一次握手，client 发送 SYN 到 server，状态修改为 SYN_SEND，server 收到，状态改变为 SYN_REVD，并将该请求放入 sync queue 队列
+2. 第二次握手，server 回复 SYN + ACK 给 client，client 收到，状态改变为 ESTABLISHED，并发送 ACK 给 server
+3. 第三次握手，server 收到 ACK，状态改变为 ESTABLISHED，将该请求从 sync queue 放入 accept queue
+
+其中
+
+* 在 linux 2.2 之前，backlog 大小包括了两个队列的大小，在 2.2 之后，分别用下面两个参数来控制
+
+* sync queue - 半连接队列
+    * 大小通过 /proc/sys/net/ipv4/tcp_max_syn_backlog 指定，在 `syncookies` 启用的情况下，逻辑上没有最大值限制，这个设置便被忽略
+* accept queue - 全连接队列
+    * 其大小通过 /proc/sys/net/core/somaxconn 指定，在使用 listen 函数时，内核会根据传入的 backlog 参数与系统参数，取二者的较小值
+    * 如果 accpet queue 队列满了，server 将发送一个拒绝连接的错误信息到 client
+
+netty 中
+
+可以通过 option(ChannelOption.SO_BACKLOG, 值) 来设置大小
+
+## 调试
+
+> 首先Find usage.
+> 点击变量名,IDEA右侧红色条框代表变量赋值位置.
